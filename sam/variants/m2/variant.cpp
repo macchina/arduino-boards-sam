@@ -344,6 +344,9 @@ UARTClass Serial(UART, UART_IRQn, ID_UART, &rx_buffer1, &tx_buffer1);
 void serialEvent() __attribute__((weak));
 void serialEvent() { }
 
+void serialEventUSB() __attribute__((weak));
+void serialEventUSB() { }
+
 // IT handlers
 void UART_Handler(void)
 {
@@ -395,6 +398,7 @@ void serialEventRun(void)
   if (Serial1.available()) serialEvent1();
   if (Serial2.available()) serialEvent2();
   if (Serial3.available()) serialEvent3();
+  if (SerialUSB.available()) serialEventUSB();
 }
 
 // ----------------------------------------------------------------------------
