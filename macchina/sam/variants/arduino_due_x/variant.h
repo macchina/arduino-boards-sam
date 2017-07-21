@@ -88,7 +88,26 @@ extern "C"{
 // Interrupts
 #define digitalPinToInterrupt(p)  ((p) < NUM_DIGITAL_PINS ? (p) : -1)
 
-// LEDs
+// **************************************************************************** //
+//							M2 PIN Definitions									//
+// **************************************************************************** //
+
+// M2 LEDs
+#define DS2			32	// (RED)
+#define DS3			94	// (YELLOW)
+#define DS4			27	// (YELLOW)
+#define	DS5			24	// (YELLOW)
+#define	DS6			23	// (GREEN)
+
+#define DS7_RED		11	// RGB Red LED
+#define	DS7_GREEN	12	// RGB Green LED
+#define	DS7_BLUE	5	// RGB Blue LED
+
+#define RGB_RED	= DS7_RED		// RGB Red LED
+#define	RGB_GREEN = DS7_GREEN	// RGB Green LED
+#define	RGB_BLUE = DS7_BLUE		// RGB Blue LED
+
+/*
 #define PIN_LED_13           (13u)
 #define PIN_LED_RXL          (72u)
 #define PIN_LED_TXL          (73u)
@@ -96,6 +115,138 @@ extern "C"{
 #define PIN_LED2             PIN_LED_RXL
 #define PIN_LED3             PIN_LED_TXL
 #define LED_BUILTIN          13
+*/
+
+// M2 GPIO
+#define	GPIO1		35
+#define	GPIO2		37
+#define	GPIO3		39
+#define	GPIO4		41
+#define	GPIO5		95
+#define	GPIO6		44
+
+// M2 GPIO_Enable
+#define	GPIO1_EN	34
+#define	GPIO2_EN	36
+#define	GPIO3_EN	38
+#define	GPIO4_EN	40
+#define	GPIO5_EN	9
+#define	GPIO6_EN	8
+
+// M2 GPIO PWM Source or SINK
+	// by selecting source or sink mode first
+	// then PWM the GPIOx_EN enable PIN
+#define	GPIO1_PWM	=	GPIO1_EN
+#define	GPIO2_PWM	=	GPIO2_EN
+#define	GPIO3_PWM	=	GPIO3_EN
+#define	GPIO4_PWM	=	GPIO4_EN
+#define	GPIO5_PWM	=	GPIO5_EN
+#define	GPIO6_PWM	=	GPIO6_EN
+
+// M2 Alternate GPIO PWM
+	// by enabling the GPIO_EN pin first
+	// then PWM the GPIOx pin
+#define	GPIO1_APWM	=	GPIO1
+#define	GPIO2_APWM	=	GPIO2
+#define	GPIO3_APWM	=	GPIO3
+#define	GPIO4_APWM	=	GPIO4
+#define	GPIO5_APWM	=	GPIO5
+#define	GPIO6_APWM	=	GPIO6
+
+// M2 User Buttons
+#define Button1		92
+#define Button2		93
+
+// M2 Analogue GPIO
+#define	ANALOG_1	64
+#define	ANALOG_2	63		
+#define	ANALOG_3	61
+#define	ANALOG_4	59
+#define	ANALOG_5	60
+#define	ANALOG_6	54
+
+// CPU Temperature
+#define	CPU_TEMP	96	// CPU Chip Temperature
+
+// Vehicle Voltage
+#define	V_SENSE		58
+
+// SD
+#define	SD_SW		72
+#define	MCCK		42
+#define	MCCDA		43
+#define	MCDA0		73
+#define	MCDA1		57
+#define	MCDA2		56
+#define	MCDA3		55
+
+// CURRENT SENSE
+#define	I_SENSE_EN		6	// 12VIO_EN enable the Current sensing for 12VIO
+#define	I_SENSE			62	// Analogue AD8 Input for 12VIO current sensing
+#define	Over_Current	26
+#define	DAC_Sense		67	// DAC output from CPU to Comparator for Over Current Sensing
+
+// CAN
+#define	CANTXO		69
+#define	CANRX0		68
+#define	CAN0_CS		28
+#define	HS_CS	CAN0_CS
+#define	CANTX1		53
+#define	CANRX1		66
+#define	CAN1_CS		25
+#define	MS_CS	CAN1_CS
+
+// J1850
+#define	J1850_PWM_VPW	97
+#define	J1850_PWM_RX	3
+#define	J1850_VPW_RX	4
+#define	J1850P_TX		45
+#define	J1850N_TX		7
+
+// Power Supply
+#define	PS_Buck			98
+#define	PS_J1850_9141	99
+
+// XBEE
+#define	XBEE_RX			0
+#define	XBEE_TX			1
+#define	SPI0_MISO		74
+#define	SPIO_MOSI		75
+#define	SPIO_CLK		76
+#define	SPIO_CS			77
+#define	XBEE_RST		100
+#define	XBEE_PWM		101
+#define	XBEE_MULT1		51
+#define	XBEE_MULT2		48
+#define	XBEE_MULT3		46
+#define	XBEE_MULT4		29
+#define	XBEE_MULT5		30
+#define	XBEE_MULT6		31
+#define XBEE_CTS		22
+#define	XBEE_STAT		50
+#define	XBEE_VREF		49
+#define	XBEE_RTS		2
+
+// 9141/LIN
+#define	LIN_KTX			18
+#define	LIN_KRX			19
+#define	LIN_KSLP		102
+#define	LIN_LTX			16
+#define	LIN_LRX			17
+#define	LIN_LSLP		103
+
+// Single Wire Can SWC
+#define	SWC_M0			13
+#define	SWC_M1			104
+#define	SWC_SOF			10
+#define	SWC_CLK			105
+#define	SWC_RST			-1
+#define	SPIO_CS3		78
+#define	SWC_INT			47
+#define	SWC_RX0			106
+#define	SWC_RX1			107
+
+// **************************************************************************** //
 
 /*
  * SPI Interfaces
@@ -191,10 +342,12 @@ static const uint8_t A8  = 62;
 static const uint8_t A9  = 63;
 static const uint8_t A10 = 64;
 static const uint8_t A11 = 65;
+static const uint8_t A15 = 95;	// CPU on chip Tempeature
 static const uint8_t DAC0 = 66;
 static const uint8_t DAC1 = 67;
 static const uint8_t CANRX = 68;
 static const uint8_t CANTX = 69;
+
 #define ADC_RESOLUTION		12
 
 /*
