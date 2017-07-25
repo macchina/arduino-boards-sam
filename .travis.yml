@@ -1,0 +1,24 @@
+language: generic
+sudo: false
+
+before_deploy:
+  - cd macchina
+  - mv sam/* .
+  - rmdir sam
+  - cd ..
+  - FILENAME=macchina-sam-$TRAVIS_TAG.tar.gz
+  - tar -cvzf $FILENAME macchina/
+  - SHA256_HASH=`sha256sum $FILENAME | sed 's/\s.*//'`
+  - BYTE_COUNT=`du -b $FILENAME | sed 's/\s.*//'`
+
+deploy:
+  provider: releases
+  api_key:
+    secure: QUe8YIzHNVoifF9WkR0lOaPlEQwrqSQP+ZTpTZNwp8h+Rp216L7gcvopwm0n9FgudWmyyV1Ff5RRYPqi4zmAvPpz70yeDzpsrpn79A4/1Q5oWKPuqObsniQyLf7L19yg45VjbeYQ1nwzTv53mK/dTknH703s/LBh9sSrztEELnksPX0ehUgnhZgjWqCDNcK179lVp0HpEAc2eMEBucZFGC5JkYhooqnFngasO551S2sO8lDihWelwy7x3lD5E8WlfZxXkHINIWIPDyvZIW4FBkuO0fhfMs6mHM8Pl5wJLLV6TvFEm8Ft+N4YQs3RYOko5IfOcn9l061nomOGsDY4bQx25303XwHQuoTXe7dj/r15jm65eCI0JTdEtguXZyn0aOvBqY2L4M2qR/Qc+K9BEZQSQIfbXLZ9xO4xpmoS0JN7J8fiozp9SERC63mfzRQ5brGR4pZvP4euWw/b6LlAevV/6e8ck5bPDqnNGkh5uRyEKloO+O5IDkgEswqnCyxj+ztOsDOmWQT+r93Uyu140KG5nac/H7fdEuyrQFuECiJNokCNEIBoGKd4CMndvigB9UEXvVHt3YM+GBCUl0899RhUU88MqzjfsX/kZrcjTmKs3z9PEOdsTnbkoTJD/Xdko5OxF2uKjBym7Jml/vTGVJZpxRHswFouesAgh7Jull0=
+  file: $FILENAME
+  file_blob: false
+  skip_cleanup: true
+  name: $TRAVIS_TAG
+  body: "{ size: $BYTE_COUNT, sha256: $SHA256_HASH }"
+  on:
+    tags: true
