@@ -1,4 +1,4 @@
-m2.name=M2
+m2.name=Macchina M2
 m2.vid.0=0x2341
 m2.pid.0=0x003e
 m2.vid.1=0x2A03
