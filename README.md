@@ -1,6 +1,6 @@
 # Macchina Board files for Arduino IDE
 
-Note that this is a work-in-progress, so keep that in mind.
+Note that this is a work-in-progress, so please report any issues.
 
 ## Installation
 
@@ -8,7 +8,7 @@ Under "Preferences", in the "additional Boards Manager URLs" field, paste:
 
 > https://macchina.github.io/package_macchina_index.json
 
-Then select "Board Manager" under Tools -> Boards, and install "M2 by Macchina".
+Then select "Board Manager" under Tools -> Boards, and install "Macchina M2 by Macchina".
 
 You should now have "Macchina M2" to in your Tools -> Boards menu in the Arduino IDE.
 
@@ -18,9 +18,12 @@ You should now have "Macchina M2" to in your Tools -> Boards menu in the Arduino
 See: [variant.h](https://github.com/macchina/Macchina_Arduino_Boards/blob/master/variants/arduino_due_x/variant.h)
 
 ## Acknowledgments
-A big thank you to [@t_doust](https://forum.macchina.cc/u/t_doust) for putting together these files. The result is a much cleaner, easy to set up, and less confusing development experience.
+A big thank you to [@TDoust](https://github.com/TDoust) for initially putting together these files. The result is a much cleaner, easy to set up, and less confusing development experience.
 
-[Adding custom (Zero based) boards to the Arduino IDE](https://forum.arduino.cc/index.php?topic=409715.0) has the instructions needed to create files needed by the "Boards Manager" feature of the Arduino IDE.
+## References
+The [Arduino IDE 3rd-party Hardware Specification](https://github.com/arduino/Arduino/wiki/Arduino-IDE-1.5-3rd-party-Hardware-specification) provides the guidelines on how the content is structured and what can be included.
+
+The [Arduino IDE package_index.json format specification](https://github.com/arduino/Arduino/wiki/Arduino-IDE-1.6.x-package_index.json-format-specification) contains the details for integrating with the Arduino Board Manager.
 
 ## Motivation
 If you select "Arduino Due (Native USB Port)" from the Tools -> Board menu in the Arduino IDE, you'd use this code:
