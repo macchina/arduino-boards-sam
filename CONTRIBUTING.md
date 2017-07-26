@@ -1,10 +1,15 @@
 ## Development: Testing your changes
 
-### Local install (simpler)
+### Local install (recommended)
 
 - Close Arduino IDE.
-- Copy your **macchina** folder from this repository into your Arduino directory.
+- Copy create a **macchina** folder in the **hardware** sub-directory of your Arduino directory then copy the contests of this repository.
   - This can be either your _sketchbook_ directory (usually <Documents>/Arduino), or the directory of the Arduino application itself, the choice is up to you.
+  - **Tip:** You can clone this repository directly to the destination to avoid copying back and forth:
+    ```bash
+    cd $ARDUINO/hardware # Substitute your actual location for $ARDUINO
+    git clone https://github.com/macchina/Macchina_Arduino_Boards.git macchina
+    ```
 - Launch Arduino IDE and you should find the **Macchina M2** board file installed.
 
 ### Board Manager Install

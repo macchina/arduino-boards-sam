@@ -2,10 +2,7 @@ language: generic
 sudo: false
 
 before_deploy:
-  - cd macchina
-  - mv sam/* .
-  - rmdir sam
-  - cd ..
+  - mv sam macchina
   - FILENAME=macchina-sam-$TRAVIS_TAG.tar.gz
   - tar -cvzf $FILENAME macchina/
   - SHA256_HASH=`sha256sum $FILENAME | sed 's/\s.*//'`
