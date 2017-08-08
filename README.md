@@ -8,14 +8,19 @@ Under "Preferences", in the "additional Boards Manager URLs" field, paste:
 
 > https://macchina.github.io/package_macchina_index.json
 
-Then select "Board Manager" under Tools -> Boards, and install "Macchina M2 by Macchina".
+and hit "OK"
+
+Then select "Board Manager" under Tools -> Boards, and install the following:
+
+ - Arduino SAM Boards (32-bit ARM Cortex-M3) by Arduino
+ - Macchina Boards by Macchina
 
 You should now have "Macchina M2" to in your Tools -> Boards menu in the Arduino IDE.
 
 [The M2 Getting Started Guide](https://www.macchina.cc/guide/m2/getting-started), although slightly outdated, can provide more details on this process.
 
 ## Pin Names
-See: [variant.h](https://github.com/macchina/Macchina_Arduino_Boards/blob/master/variants/arduino_due_x/variant.h)
+See: [variant.h](https://github.com/macchina/Macchina_Arduino_Boards/blob/master/sam/variants/m2/variant.h)
 
 ## Acknowledgments
 A big thank you to [@TDoust](https://github.com/TDoust) for initially putting together these files. The result is a much cleaner, easy to set up, and less confusing development experience.
