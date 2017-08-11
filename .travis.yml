@@ -16,6 +16,6 @@ deploy:
   file_blob: false
   skip_cleanup: true
   name: $TRAVIS_TAG
-  body: "{ size: $BYTE_COUNT, sha256: $SHA256_HASH }"
+  body: '{ "size": $BYTE_COUNT, "sha256": "$SHA256_HASH" }'
   on:
     tags: true
