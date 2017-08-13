@@ -1,4 +1,18 @@
 /*
+*  variant.h for Macchina M2
+*
+*	Author:	MACCHINA.cc Tony Doust, Adam Voss
+*	Date:	8/5/2017
+*	Version: V1.0
+*		Revisions
+*			TonyD 7-8-2017 Moved all digital pins before Analogue pins in PinDescription Array & adjusted PIN Numbering to reflect changed position in PinDescription Array
+*							Grouped all logical functions together
+*
+* Short description:
+*	Macchina M2 Arduino_DUE Variant PIN Numbering to PIN Definition Names
+*/
+
+/*
   Copyright (c) 2011 Arduino.  All right reserved.
 
   This library is free software; you can redistribute it and/or
@@ -16,8 +30,41 @@
   Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
+/*  Copyright (c) 2016 Macchina
+*
+*  Permission is hereby granted, free of charge, to any person obtaining
+*  a copy of this software and associated documentation files (the
+*  "Software"), to deal in the Software without restriction, including
+*  without limitation the rights to use, copy, modify, merge, publish,
+*  distribute, sublicense, and/or sell copies of the Software, and to
+*  permit persons to whom the Software is furnished to do so, subject to
+*  the following conditions:
+*
+*  The above copyright notice and this permission notice shall be included
+*  in all copies or substantial portions of the Software.
+*
+*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+*  EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+*  MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+*  IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+*  CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+*  TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+*  SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+*/
+
 #ifndef _VARIANT_ARDUINO_DUE_X_
 #define _VARIANT_ARDUINO_DUE_X_
+
+/*************************************************************************************
+*					WARNING	for use with M2 BETA  Hardware ONLY						 *
+* Uncomment the following define to use the BETA version of the GPIOx_B sink OUTPUTS *
+*																					 *
+*************************************************************************************/
+
+//#define M2_Beta
+
+/************************************************************************************/
+
 
 /*----------------------------------------------------------------------------
  *        Definitions
@@ -55,10 +102,10 @@ extern "C"{
  *----------------------------------------------------------------------------*/
 
 // Number of pins defined in PinDescription array
-#define PINS_COUNT           (79u)
-#define NUM_DIGITAL_PINS     (66u)
-#define NUM_ANALOG_INPUTS    (12u)
-#define analogInputToDigitalPin(p)  ((p < 12u) ? (p) + 54u : -1)
+#define PINS_COUNT           (96u)		//(79u)
+#define NUM_DIGITAL_PINS     (86u)		//(66u)
+#define NUM_ANALOG_INPUTS    (9u)		//(12u)
+#define analogInputToDigitalPin(p)  ((p < 9u) ? (p) + 86u : -1)
 
 #define digitalPinToPort(P)        ( g_APinDescription[P].pPort )
 #define digitalPinToBitMask(P)     ( g_APinDescription[P].ulPin )
@@ -93,158 +140,161 @@ extern "C"{
 // **************************************************************************** //
 
 // M2 LEDs
-#define DS2			32	// (RED)
-#define DS3			94	// (YELLOW)
-#define DS4			27	// (YELLOW)
-#define	DS5			24	// (YELLOW)
-#define	DS6			23	// (GREEN)
+#define DS2				14	// (RED)
+#define DS3				15	// (YELLOW)
+#define DS4				16	// (YELLOW)
+#define	DS5				17	// (YELLOW)
+#define	DS6				18	// (GREEN)
 
-#define DS7_RED		11	// RGB Red LED
-#define	DS7_GREEN	12	// RGB Green LED
-#define	DS7_BLUE	5	// RGB Blue LED
+#define DS7_RED			19	// RGB Red LED
+#define	DS7_GREEN		20	// RGB Green LED
+#define	DS7_BLUE		21	// RGB Blue LED
 
 #define RGB_RED	= DS7_RED		// RGB Red LED
 #define	RGB_GREEN = DS7_GREEN	// RGB Green LED
 #define	RGB_BLUE = DS7_BLUE		// RGB Blue LED
 
+
 /*
-#define PIN_LED_13           (13u)
-#define PIN_LED_RXL          (72u)
-#define PIN_LED_TXL          (73u)
-#define PIN_LED              PIN_LED_13
-#define PIN_LED2             PIN_LED_RXL
-#define PIN_LED3             PIN_LED_TXL
-#define LED_BUILTIN          13
+#define PIN_LED_13		13
+#define PIN_LED_RXL		72
+#define PIN_LED_TXL		73
+#define PIN_LED			PIN_LED_13
+#define PIN_LED2		PIN_LED_RXL
+#define PIN_LED3		PIN_LED_TXL
+#define LED_BUILTIN		13
 */
 
 // M2 GPIO
-#define	GPIO1		35
-#define	GPIO2		37
-#define	GPIO3		39
-#define	GPIO4		41
-#define	GPIO5		95
-#define	GPIO6		44
+#define	GPIO1			24
+#define	GPIO2			25
+#define	GPIO3			26
+#define	GPIO4			27
+#define	GPIO5			28
+#define	GPIO6			29
 
-// M2 GPIO_Enable
-#define	GPIO1_EN	34
-#define	GPIO2_EN	36
-#define	GPIO3_EN	38
-#define	GPIO4_EN	40
-#define	GPIO5_EN	9
-#define	GPIO6_EN	8
+#ifdef M2_Beta	// M2 Beta legacy Hardware Sink Input Pins
+	// M2 GPIO_B pins for Sinking INPUT Pins
+	#define	GPIO1_B		30
+	#define	GPIO2_B		31
+	#define	GPIO3_B		32
+	#define	GPIO4_B		33
+	#define	GPIO5_B		34
+	#define	GPIO6_B		35
+#endif
 
-// M2 GPIO PWM Source or SINK
-	// by selecting source or sink mode first
-	// then PWM the GPIOx_EN enable PIN
-#define	GPIO1_PWM	=	GPIO1_EN
-#define	GPIO2_PWM	=	GPIO2_EN
-#define	GPIO3_PWM	=	GPIO3_EN
-#define	GPIO4_PWM	=	GPIO4_EN
-#define	GPIO5_PWM	=	GPIO5_EN
-#define	GPIO6_PWM	=	GPIO6_EN
-
-// M2 Alternate GPIO PWM
-	// by enabling the GPIO_EN pin first
-	// then PWM the GPIOx pin
-#define	GPIO1_APWM	=	GPIO1
-#define	GPIO2_APWM	=	GPIO2
-#define	GPIO3_APWM	=	GPIO3
-#define	GPIO4_APWM	=	GPIO4
-#define	GPIO5_APWM	=	GPIO5
-#define	GPIO6_APWM	=	GPIO6
 
 // M2 User Buttons
-#define Button1		92
-#define Button2		93
+#define Button1			22
+#define Button2			23
+
 
 // M2 Analogue GPIO
-#define	ANALOG_1	64
-#define	ANALOG_2	63		
-#define	ANALOG_3	61
-#define	ANALOG_4	59
-#define	ANALOG_5	60
-#define	ANALOG_6	54
+#define	ANALOG_1		86
+#define	ANALOG_2		87
+#define	ANALOG_3		88
+#define	ANALOG_4		89
+#define	ANALOG_5		90
+#define	ANALOG_6		91
 
-// CPU Temperature
-#define	CPU_TEMP	96	// CPU Chip Temperature
 
-// Vehicle Voltage
-#define	V_SENSE		58
+// CPU Temperature Analogue
+#define	CPU_TEMP		94	// CPU on chip Tempeature Fix not working TD 6-8-2017 assigned 2 different pin numbers
+
+
+// Vehicle Voltage Analogue
+#define	V_SENSE			92
+
+
+//CURRENT SENSE Power Supply
+#define	I_SENSE_EN		75	// 12VIO_EN enable to allow the Current sensing for 12VIO
+#define	I_SENSE_INT		76	// Interupt from Power supply Overcurrent
+#define	I_SENSE			95	// Analogue AD8 Input for 12VIO current sensing
+#define	I_SENSE_DAC		67	// DAC Analogue output from CPU to Comparator for Over Current Sensing
+
 
 // SD
-#define	SD_SW		72
-#define	MCCK		42
-#define	MCCDA		43
-#define	MCDA0		73
-#define	MCDA1		57
-#define	MCDA2		56
-#define	MCDA3		55
+#define	SD_SW			36	// SD Card Inserted
+#define	MCCK			37
+#define	MCCDA			38
+#define	MCDA0			39
+#define	MCDA1			40
+#define	MCDA2			41
+#define	MCDA3			42
 
-// CURRENT SENSE
-#define	I_SENSE_EN		6	// 12VIO_EN enable the Current sensing for 12VIO
-#define	I_SENSE			62	// Analogue AD8 Input for 12VIO current sensing
-#define	Over_Current	26
-#define	DAC_Sense		67	// DAC output from CPU to Comparator for Over Current Sensing
 
 // CAN
-#define	CANTXO		69
-#define	CANRX0		68
-#define	CAN0_CS		28
-#define	HS_CS	CAN0_CS
-#define	CANTX1		53
-#define	CANRX1		66
-#define	CAN1_CS		25
-#define	MS_CS	CAN1_CS
+#define	CANRX0			69
+#define	CANTX0			70
+#define	CAN0_CS			71
+#define	HS_CS		  CAN0_CS
+
+#define	CANRX1			72
+#define	CANTX1			73
+#define	CAN1_CS			74
+#define	MS_CS		 CAN1_CS
+
 
 // J1850
-#define	J1850_PWM_VPW	97
-#define	J1850_PWM_RX	3
-#define	J1850_VPW_RX	4
-#define	J1850P_TX		45
-#define	J1850N_TX		7
+#define	J1850_PWM_VPW	50
+#define	J1850_PWM_RX	51
+#define	J1850_VPW_RX	52
+#define	J1850P_TX		53
+#define	J1850N_TX		54
+
 
 // Power Supply
-#define	PS_Buck			98
-#define	PS_J1850_9141	99
+#define	PS_BUCK			48
+#define BUCK_DIS		PS_BUCK
+#define	PS_J1850_9141	49
+
 
 // XBEE
 #define	XBEE_RX			0
 #define	XBEE_TX			1
-#define	SPI0_MISO		74
-#define	SPIO_MOSI		75
-#define	SPIO_CLK		76
-#define	SPIO_CS			77
-#define	XBEE_RST		100
-#define	XBEE_PWM		101
-#define	XBEE_MULT1		51
-#define	XBEE_MULT2		48
-#define	XBEE_MULT3		46
-#define	XBEE_MULT4		29
-#define	XBEE_MULT5		30
-#define	XBEE_MULT6		31
-#define XBEE_CTS		22
-#define	XBEE_STAT		50
-#define	XBEE_VREF		49
 #define	XBEE_RTS		2
+#define XBEE_CTS		3
+#define	XBEE_RST		4
+#define	XBEE_STAT		5
+#define	XBEE_VREF		6
+#define	XBEE_PWM		7
+#define	XBEE_MULT1		8
+#define	XBEE_MULT2		9
+#define	XBEE_MULT3		10
+#define	XBEE_MULT4		11
+#define	XBEE_MULT5		12
+#define	XBEE_MULT6		13
+#define	SPI0_CS0		47
+#define SPI0_CS			SPI0_CS0
+
+
+// SPI
+#define	SPI0_MISO		43
+#define	SPI0_MOSI		44
+#define	SPI0_CLK		45
+#define SPI0_CS1		46
+
 
 // 9141/LIN
-#define	LIN_KTX			18
-#define	LIN_KRX			19
-#define	LIN_KSLP		102
-#define	LIN_LTX			16
-#define	LIN_LRX			17
-#define	LIN_LSLP		103
+#define	LIN_KTX			55
+#define	LIN_KRX			56
+#define	LIN_KSLP		57
+#define	LIN_LTX			58
+#define	LIN_LRX			59
+#define	LIN_LSLP		60
+
 
 // Single Wire Can SWC
-#define	SWC_M0			13
-#define	SWC_M1			104
-#define	SWC_SOF			10
-#define	SWC_CLK			105
+#define	SWC_RX0			61
+#define	SWC_RX1			62
+//#define SPI0_CS			63
+#define	SPI0_CS3		63
+#define	SWC_M0			64
+#define	SWC_M1			65
+#define	SWC_CLK			66
+#define	SWC_INT			67
+#define	SWC_SOF			68
 #define	SWC_RST			-1
-#define	SPIO_CS3		78
-#define	SWC_INT			47
-#define	SWC_RX0			106
-#define	SWC_RX1			107
 
 // **************************************************************************** //
 
@@ -253,22 +303,24 @@ extern "C"{
  */
 #define SPI_INTERFACES_COUNT 1
 
-#define SPI_INTERFACE        SPI0
-#define SPI_INTERFACE_ID     ID_SPI0
-#define SPI_CHANNELS_NUM 4
-#define PIN_SPI_SS0          (77u)
-#define PIN_SPI_SS1          (87u)
-#define PIN_SPI_SS2          (86u)
-#define PIN_SPI_SS3          (78u)
-#define PIN_SPI_MOSI         (75u)
-#define PIN_SPI_MISO         (74u)
-#define PIN_SPI_SCK          (76u)
-#define BOARD_SPI_SS0        (10u)
-#define BOARD_SPI_SS1        (4u)
-#define BOARD_SPI_SS2        (52u)
+#define SPI_INTERFACE		   SPI0
+#define SPI_INTERFACE_ID	  ID_SPI0
+#define SPI_CHANNELS_NUM		4
+#define PIN_SPI_SS0				47
+#define PIN_SPI_SS1				46
+#define PIN_SPI_SS2				103
+#define PIN_SPI_SS3				63
+#define PIN_SPI_MOSI			44
+#define PIN_SPI_MISO			43
+#define PIN_SPI_SCK				45
+#define BOARD_SPI_SS0			68
+#define BOARD_SPI_SS1			52
+#define BOARD_SPI_SS2			83
 #define BOARD_SPI_SS3        PIN_SPI_SS3
 #define BOARD_SPI_DEFAULT_SS BOARD_SPI_SS3
 
+
+// ** TODO Check all SPI Board to Pin assignments may need to fix this ** TD 6-8-2017//
 #define BOARD_PIN_TO_SPI_PIN(x) \
 	(x==BOARD_SPI_SS0 ? PIN_SPI_SS0 : \
 	(x==BOARD_SPI_SS1 ? PIN_SPI_SS1 : \
@@ -291,75 +343,81 @@ static const uint8_t SCK  = PIN_SPI_SCK;
  */
 #define WIRE_INTERFACES_COUNT 2
 
-#define PIN_WIRE_SDA         (20u)
-#define PIN_WIRE_SCL         (21u)
+#define PIN_WIRE_SDA         81
+#define PIN_WIRE_SCL         82
 #define WIRE_INTERFACE       TWI1
 #define WIRE_INTERFACE_ID    ID_TWI1
 #define WIRE_ISR_HANDLER     TWI1_Handler
 #define WIRE_ISR_ID          TWI1_IRQn
+static const uint8_t SDA1 = PIN_WIRE_SDA;
+static const uint8_t SCL1 = PIN_WIRE_SCL;
 
-#define PIN_WIRE1_SDA        (70u)
-#define PIN_WIRE1_SCL        (71u)
+#define PIN_WIRE1_SDA        79
+#define PIN_WIRE1_SCL        80
 #define WIRE1_INTERFACE      TWI0
 #define WIRE1_INTERFACE_ID   ID_TWI0
 #define WIRE1_ISR_HANDLER    TWI0_Handler
 #define WIRE1_ISR_ID         TWI0_IRQn
 
-static const uint8_t SDA  = PIN_WIRE_SDA;
-static const uint8_t SCL  = PIN_WIRE_SCL;
-static const uint8_t SDA1 = PIN_WIRE1_SDA;
-static const uint8_t SCL1 = PIN_WIRE1_SCL;
+static const uint8_t SDA0  = PIN_WIRE1_SDA;
+static const uint8_t SCL0  = PIN_WIRE1_SCL;
+
+// UART3 PINS
+#define TXD3				77
+#define RXD3				78
 
 /*
  * UART/USART Interfaces
  */
 // Serial
-#define PINS_UART            (81u)
+#define PINS_UART            98
 // Serial1
-#define PINS_USART0          (82u)
+#define PINS_USART0          99
 // Serial2
-#define PINS_USART1          (83u)
+#define PINS_USART1          100
 // Serial3
-#define PINS_USART3          (84u)
+#define PINS_USART3          101
 
 /*
  * USB Interfaces
  */
-#define PINS_USB             (85u)
+#define PINS_USB             102
 
 /*
  * Analog pins
  */
-static const uint8_t A0  = 54;
-static const uint8_t A1  = 55;
-static const uint8_t A2  = 56;
-static const uint8_t A3  = 57;
-static const uint8_t A4  = 58;
-static const uint8_t A5  = 59;
-static const uint8_t A6  = 60;
-static const uint8_t A7  = 61;
-static const uint8_t A8  = 62;
-static const uint8_t A9  = 63;
-static const uint8_t A10 = 64;
-static const uint8_t A11 = 65;
-static const uint8_t A15 = 95;	// CPU on chip Tempeature
-static const uint8_t DAC0 = 66;
-static const uint8_t DAC1 = 67;
-static const uint8_t CANRX = 68;
-static const uint8_t CANTX = 69;
+//static const uint8_t A1  =	55;
+//static const uint8_t A2  =	56;
+//static const uint8_t A3  =	57;
+//static const uint8_t A11 =	65;
+static const uint8_t A0 = 91;
+static const uint8_t A4  =	92;
+static const uint8_t A5  =	89;
+static const uint8_t A6  =	90;
+static const uint8_t A7  =	88;
+static const uint8_t A8  =	93;
+static const uint8_t A9  =	87;
+static const uint8_t A10 =	86;
+static const uint8_t A15 =	94;	// CPU on chip Tempeature Fix not working TD 6-8-2017 assigned 2 different pin numbers
+
+//static const uint8_t DAC0 = 66;
+static const uint8_t DAC1 = 95;
+
+static const uint8_t CANRX = 69;
+static const uint8_t CANTX = 70;
 
 #define ADC_RESOLUTION		12
 
 /*
  * Complementary CAN pins
  */
-static const uint8_t CAN1RX = 88;
-static const uint8_t CAN1TX = 89;
+static const uint8_t CAN1RX = 104;
+static const uint8_t CAN1TX = 105;
 
 // CAN0
-#define PINS_CAN0            (90u)
+#define PINS_CAN0            106
 // CAN1
-#define PINS_CAN1            (91u)
+#define PINS_CAN1            107
 
 
 /*
