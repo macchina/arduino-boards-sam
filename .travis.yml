@@ -1,14 +1,13 @@
 language: node_js
-node_js: ['8']
+node_js:
+- '8'
 sudo: false
-
 before_deploy:
-  - node run.js > platform.json
-
+- node run.js > platform.json
 deploy:
   provider: releases
   api_key:
-    secure: QUe8YIzHNVoifF9WkR0lOaPlEQwrqSQP+ZTpTZNwp8h+Rp216L7gcvopwm0n9FgudWmyyV1Ff5RRYPqi4zmAvPpz70yeDzpsrpn79A4/1Q5oWKPuqObsniQyLf7L19yg45VjbeYQ1nwzTv53mK/dTknH703s/LBh9sSrztEELnksPX0ehUgnhZgjWqCDNcK179lVp0HpEAc2eMEBucZFGC5JkYhooqnFngasO551S2sO8lDihWelwy7x3lD5E8WlfZxXkHINIWIPDyvZIW4FBkuO0fhfMs6mHM8Pl5wJLLV6TvFEm8Ft+N4YQs3RYOko5IfOcn9l061nomOGsDY4bQx25303XwHQuoTXe7dj/r15jm65eCI0JTdEtguXZyn0aOvBqY2L4M2qR/Qc+K9BEZQSQIfbXLZ9xO4xpmoS0JN7J8fiozp9SERC63mfzRQ5brGR4pZvP4euWw/b6LlAevV/6e8ck5bPDqnNGkh5uRyEKloO+O5IDkgEswqnCyxj+ztOsDOmWQT+r93Uyu140KG5nac/H7fdEuyrQFuECiJNokCNEIBoGKd4CMndvigB9UEXvVHt3YM+GBCUl0899RhUU88MqzjfsX/kZrcjTmKs3z9PEOdsTnbkoTJD/Xdko5OxF2uKjBym7Jml/vTGVJZpxRHswFouesAgh7Jull0=
+    secure: UL9i8eqPfR9jYeydt8d4nUwqE/ZsLJzGjZWAqiDPvDKMFetVSyFTTUwRvigy+6CsU16ZCPu7h5PBbw9qTfTGiSr5lxkW8CUSlnMWL1iE86EJbKfdXUGW18ApGWkyjLs1FPU2+iK8QnVlvjXQQUh6ZW6hLbzBtr1r/IRD+CjLn3ATdt+3X9yejMd+TDgc6mAdvtEgbGUG+PvkyuvMCAlN9aC9ThB+xgTC53flqvca87wIEb6WiBqAcWnxQtl2HfwPVhFQbEmKzpxHnHKG7y/48WweNsNBM9jmXQs3I7N/X0XSPtA2IXdwE3ObDCTxVy3sHLr+YQ/CEk57CnZI5QFYeELzQPXE6tYcTYOrFmjkMZfIXRJXCqurxWkI7Snn/O4u/+pfS6AUlfiinWuom8JF0BEuXCQP0OmnSC47FQGpf9btRLhCTT/AY8v9ThYrOEQSJFM5Tv2p0kwkU5PGpqB8MrxtU5PyqKWw1AVQlxrK0AIGRcrI0r4BwaYbXw6C2obTDjJpf5KUhZaAqqx4RHa/5++TOykbZ7z4VXdyhwnrARVCyben9qjnMziD9bBvnwo2NgOQLeGORntiWkdc73LTQIYJhOFvIAiN16pPj/jKs4E8gl6WZlWUE0XzVcQEH1+bVI579SqaIZxdZqVySyA2JQnbx+Z/YOg3Qw1E3PLRqNA=
   file:
     - "*.tar.gz"
     - platform.json
