@@ -6,7 +6,7 @@ Note that this is a work-in-progress, so please report any issues.
 
 Under "Preferences", in the "additional Boards Manager URLs" field, paste:
 
-> https://macchina.cc/package_macchina_index.json
+    https://macchina.cc/package_macchina_index.json
 
 and hit "OK"
 
