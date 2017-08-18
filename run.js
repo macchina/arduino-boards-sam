@@ -25,7 +25,7 @@ async function main() {
   
   //await unlink('macchina')
   await symlink('sam', 'macchina')
-  const version = await trimmedStdout('git tag');
+  const version = await trimmedStdout('git describe');
 
   const filename = `macchina-sam-${version}.tar.gz`
   await exec(`tar -h -cvzf ${filename} macchina/`)
