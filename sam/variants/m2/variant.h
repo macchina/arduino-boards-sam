@@ -1,7 +1,7 @@
 /*
 *  variant.h for Macchina M2
 *
-*   Author: MACCHINA.cc Tony Doust, Adam Voss
+*   Author: Tony Doust
 *   Date:   8/5/2017
 *   Version: V1.0
 *       Revisions
