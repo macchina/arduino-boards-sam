@@ -50,10 +50,10 @@
  *  11            |  PD6   | "XBEE_MULT4"
  *  12            |  PD9   | "XBEE_MULT5"
  *  13            |  PA7   | "XBEE_MULT6"
- *   14           |  PD10  | "DS2"              // Red LED
+ *  14            |  PD10  | "DS2"              // Red LED
  *  15            |  PA5   | "DS3"              // Yellow LED
- *   16           |  PD2   | "DS4"              // Yellow LED
- *   17           |  PA15  | "DS5"              // Yellow LED
+ *  16            |  PD2   | "DS4"              // Yellow LED
+ *  17            |  PA15  | "DS5"              // Yellow LED
  *  18            |  PA14  | "DS6"              // Green LED
  *  19            |  PD7   | "DS7_RED/RGB_RED"
  *  20            |  PD8   | "DS7_GREEN/RGB_GREEN"
@@ -124,16 +124,16 @@
  *  85            |  PC1   | "unconnected!" // ** unconnected processor pin ** //
  *      // Analogue Pins
  *      //--------------
- *  86            |  PB19  | "ANALOG_1"     // AD10
- *  87            |  PB18  | "ANALOG_2"     // AD9
- *  88            |  PA2   | "ANALOG_3"     // AD7
- *  89            |  PA4   | "ANALOG_4"     // AD5
- *  90            |  PA3   | "ANALOG_5"     // AD6
- *  91            |  PA16  | "ANALOG_6"     // AD0
- *  92            |  PA6   | "V_SENSE"      // AD3
- *  93            |  PB17  | "I_SENSE"      // AD8
- *  94            |  PD5   | "CPU_TEMP/A15" // CPU Temperature
- *  95            |  PB16  | "I_SENSE_DAC"  // DAC1
+ *  86            |  PB19  | "ANALOG_1/A0"     // AD10
+ *  87            |  PB18  | "ANALOG_2/A1"     // AD9
+ *  88            |  PA2   | "ANALOG_3/A2"     // AD7
+ *  89            |  PA4   | "ANALOG_4/A3"     // AD5
+ *  90            |  PA3   | "ANALOG_5/A4"     // AD6
+ *  91            |  PA16  | "ANALOG_6/A5"     // AD0
+ *  92            |  PA6   | "V_SENSE/A6"      // AD3
+ *  93            |  PB17  | "I_SENSE/A7"      // AD8
+ *  94            |  PD5   | "CPU_TEMP/A8"     // CPU Temperature
+ *  95            |  PB16  | "I_SENSE_DAC"     // DAC1
  *  96  Pins Masks|  PA17A | "TWI0"
  *  97            |  PB12A | "TWI1"
  *  98            |  PA8A  | "UART"
@@ -286,20 +286,19 @@ extern const PinDescription g_APinDescription[]=
 
   // 86 .. 93 - Analog pins
   // ----------------------
-  { PIOB, PIO_PB19X1_AD12,   ID_PIOB, PIO_INPUT,    PIO_DEFAULT, PIN_ATTR_ANALOG,                   ADC10,  ADC12,  NOT_ON_PWM,  NOT_ON_TIMER   }, // ANALOG_1  // AD10
-  { PIOB, PIO_PB18X1_AD11,   ID_PIOB, PIO_INPUT,    PIO_DEFAULT, PIN_ATTR_ANALOG,                   ADC9,   ADC11,  NOT_ON_PWM,  NOT_ON_TIMER   }, // ANALOG_2  // AD9
-  { PIOA, PIO_PA2X1_AD0,     ID_PIOA, PIO_INPUT,    PIO_DEFAULT, PIN_ATTR_ANALOG,                   ADC7,   ADC0,   NOT_ON_PWM,  TC0_CHA1       }, // ANALOG_3  // AD7
-  { PIOA, PIO_PA4X1_AD2,     ID_PIOA, PIO_INPUT,    PIO_DEFAULT, PIN_ATTR_ANALOG,                   ADC5,   ADC2,   NOT_ON_PWM,  NOT_ON_TIMER   }, // ANALOG_4  // AD5
-  { PIOA, PIO_PA3X1_AD1,     ID_PIOA, PIO_INPUT,    PIO_DEFAULT, PIN_ATTR_ANALOG,                   ADC6,   ADC1,   NOT_ON_PWM,  TC0_CHB1       }, // ANALOG_5  // AD6
-  { PIOA, PIO_PA16X1_AD7,    ID_PIOA, PIO_INPUT,    PIO_DEFAULT, PIN_ATTR_ANALOG,                   ADC0,   ADC7,   NOT_ON_PWM,  NOT_ON_TIMER   }, // ANALOG_6  // AD0
-  { PIOA, PIO_PA6,           ID_PIOA, PIO_INPUT,    PIO_DEFAULT, PIN_ATTR_ANALOG,                   ADC4,   ADC3,   NOT_ON_PWM,  NOT_ON_TIMER   }, // V_SENSE   // AD3
-  { PIOB, PIO_PB17X1_AD10,   ID_PIOB, PIO_INPUT,    PIO_DEFAULT, PIN_ATTR_ANALOG,                   ADC8,   ADC10,  NOT_ON_PWM,  NOT_ON_TIMER   }, // I_SENSE   // AD8
+  { PIOB, PIO_PB19X1_AD12,   ID_PIOB, PIO_INPUT,    PIO_DEFAULT, PIN_ATTR_ANALOG,                   ADC0,   ADC12,  NOT_ON_PWM,  NOT_ON_TIMER   }, // ANALOG_1  // AD10
+  { PIOB, PIO_PB18X1_AD11,   ID_PIOB, PIO_INPUT,    PIO_DEFAULT, PIN_ATTR_ANALOG,                   ADC1,   ADC11,  NOT_ON_PWM,  NOT_ON_TIMER   }, // ANALOG_2  // AD9
+  { PIOA, PIO_PA2X1_AD0,     ID_PIOA, PIO_INPUT,    PIO_DEFAULT, PIN_ATTR_ANALOG,                   ADC2,   ADC0,   NOT_ON_PWM,  TC0_CHA1       }, // ANALOG_3  // AD7
+  { PIOA, PIO_PA4X1_AD2,     ID_PIOA, PIO_INPUT,    PIO_DEFAULT, PIN_ATTR_ANALOG,                   ADC3,   ADC2,   NOT_ON_PWM,  NOT_ON_TIMER   }, // ANALOG_4  // AD5
+  { PIOA, PIO_PA3X1_AD1,     ID_PIOA, PIO_INPUT,    PIO_DEFAULT, PIN_ATTR_ANALOG,                   ADC4,   ADC1,   NOT_ON_PWM,  TC0_CHB1       }, // ANALOG_5  // AD6
+  { PIOA, PIO_PA16X1_AD7,    ID_PIOA, PIO_INPUT,    PIO_DEFAULT, PIN_ATTR_ANALOG,                   ADC5,   ADC7,   NOT_ON_PWM,  NOT_ON_TIMER   }, // ANALOG_6  // AD0
+  { PIOA, PIO_PA6X1_AD3,     ID_PIOA, PIO_INPUT,    PIO_DEFAULT, PIN_ATTR_ANALOG,                   ADC6,   ADC3,   NOT_ON_PWM,  NOT_ON_TIMER   }, // V_SENSE   // AD3
+  { PIOB, PIO_PB17X1_AD10,   ID_PIOB, PIO_INPUT,    PIO_DEFAULT, PIN_ATTR_ANALOG,                   ADC7,   ADC10,  NOT_ON_PWM,  NOT_ON_TIMER   }, // I_SENSE   // AD8
   // 94 AD15 CPU Chip Temperature
-  //{ PIOD, PIO_PD5A_A15,           ID_PIOD, PIO_PERIPH_A,  PIO_DEFAULT, PIN_ATTR_ANALOG,                   ADC15,   ADC15, NOT_ON_PWM,  NOT_ON_TIMER   }, // CPU_TEMP/A15 //ADC15 CPU Temperature
-  { PIOD, PIO_PD5A_A15,     ID_PIOD, PIO_NOT_A_PIN, PIO_DEFAULT, PIN_ATTR_ANALOG,                   ADC15,   ADC15, NOT_ON_PWM,  NOT_ON_TIMER   }, // CPU_TEMP/A15 // AD15 CPU Temperature
+  { PIOD, PIO_PD5A_A15,     ID_PIOD, PIO_NOT_A_PIN, PIO_DEFAULT, PIN_ATTR_ANALOG,                   ADC8,   ADC15, NOT_ON_PWM,  NOT_ON_TIMER   }, // CPU_TEMP/A15 // AD15 CPU Temperature
 
   // 95 - CANRX1/DAC1
-  { PIOB, PIO_PB16X1_DAC1,   ID_PIOB, PIO_INPUT,    PIO_DEFAULT, PIN_ATTR_ANALOG,                   ADC13,  DA1,    NOT_ON_PWM,  NOT_ON_TIMER   }, // I_SENSE_DAC // DAC1
+  { PIOB, PIO_PB16X1_DAC1,   ID_PIOB, PIO_INPUT,    PIO_DEFAULT, PIN_ATTR_ANALOG,                   ADC13,  DA1,    NOT_ON_PWM,  NOT_ON_TIMER	}, // I_SENSE_DAC // DAC1
 
   // 96 .. 101 - "All pins" masks
   //-----------------------------
@@ -483,11 +482,24 @@ void init( void )
   // Initialize Analog Controller
   pmc_enable_periph_clk(ID_ADC);
   adc_init(ADC, SystemCoreClock, ADC_FREQ_MAX, ADC_STARTUP_FAST);
-  adc_enable_ts(ADC); // Enable A15 Chip Temeprature
+
+  adc_enable_channel(ADC, ADC_CHANNEL_12); // Analog1
+  adc_enable_channel(ADC, ADC_CHANNEL_11); // Analog2
+  adc_enable_channel(ADC, ADC_CHANNEL_0);  // Analog3
+  adc_enable_channel(ADC, ADC_CHANNEL_2);  // Analog4
+  adc_enable_channel(ADC, ADC_CHANNEL_1);  // Analog5
+  adc_enable_channel(ADC, ADC_CHANNEL_7);  // Analog6
+  adc_enable_channel(ADC, ADC_CHANNEL_3);  // V_SENSE
+  adc_enable_channel(ADC, ADC_CHANNEL_10); // I_SENSE
+
+  adc_enable_ts(ADC); // Enable A15 Chip Temeprature tson bit
+  adc_enable_channel(ADC, ADC_TEMPERATURE_SENSOR);
+
   adc_configure_timing(ADC, 0, ADC_SETTLING_TIME_3, 1);
   adc_configure_trigger(ADC, ADC_TRIG_SW, 0); // Disable hardware trigger.
   adc_disable_interrupt(ADC, 0xFFFFFFFF); // Disable all ADC interrupts.
   adc_disable_all_channel(ADC);
+
 
   // Initialize analogOutput module
   analogOutputInit();

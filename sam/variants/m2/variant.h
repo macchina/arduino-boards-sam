@@ -33,6 +33,11 @@
 #ifndef _VARIANT_ARDUINO_DUE_X_
 #define _VARIANT_ARDUINO_DUE_X_
 
+
+/*----------------------------------------------------------------------------
+ *        Definitions
+ *----------------------------------------------------------------------------*/
+
 /*************************************************************************************
 *                   WARNING for use with M2 BETA  Hardware ONLY                      *
 * Uncomment the following define to use the BETA version of the GPIOx_B sink OUTPUTS *
@@ -42,11 +47,6 @@
 //#define M2_Beta
 
 /************************************************************************************/
-
-
-/*----------------------------------------------------------------------------
- *        Definitions
- *----------------------------------------------------------------------------*/
 
 /** Frequency of the board main oscillator */
 #define VARIANT_MAINOSC     12000000
@@ -80,9 +80,9 @@ extern "C"{
  *----------------------------------------------------------------------------*/
 
 // Number of pins defined in PinDescription array
-#define PINS_COUNT           (96u)      //(79u)
-#define NUM_DIGITAL_PINS     (86u)      //(66u)
-#define NUM_ANALOG_INPUTS    (9u)       //(12u)
+#define PINS_COUNT           (96u)
+#define NUM_DIGITAL_PINS     (86u)
+#define NUM_ANALOG_INPUTS    (9u)
 #define analogInputToDigitalPin(p)  ((p < 9u) ? (p) + 86u : -1)
 
 #define digitalPinToPort(P)        ( g_APinDescription[P].pPort )
@@ -133,14 +133,14 @@ extern "C"{
 #define RGB_BLUE = DS7_BLUE     // RGB Blue LED
 
 
+#define LED_BUILTIN     DS2
 /*
-#define PIN_LED_13      13
-#define PIN_LED_RXL     72
-#define PIN_LED_TXL     73
+#define PIN_LED_13      DS2
+#define PIN_LED_RXL     DS7_GREEN
+#define PIN_LED_TXL     DS7_BLUE
 #define PIN_LED         PIN_LED_13
 #define PIN_LED2        PIN_LED_RXL
 #define PIN_LED3        PIN_LED_TXL
-#define LED_BUILTIN     13
 */
 
 // M2 GPIO
@@ -364,22 +364,20 @@ static const uint8_t SCL0  = PIN_WIRE1_SCL;
 /*
  * Analog pins
  */
-//static const uint8_t A1  =    55;
-//static const uint8_t A2  =    56;
-//static const uint8_t A3  =    57;
-//static const uint8_t A11 =    65;
-static const uint8_t A0 = 91;
-static const uint8_t A4  =  92;
-static const uint8_t A5  =  89;
-static const uint8_t A6  =  90;
-static const uint8_t A7  =  88;
-static const uint8_t A8  =  93;
-static const uint8_t A9  =  87;
-static const uint8_t A10 =  86;
-static const uint8_t A15 =  94; // CPU on chip Tempeature Fix not working TD 6-8-2017 assigned 2 different pin numbers
+static const uint8_t A0 = 86;
+static const uint8_t A1 = 87;
+static const uint8_t A2 = 88;
+static const uint8_t A3 = 89;
+static const uint8_t A4 = 90;
+static const uint8_t A5 = 91;
 
-//static const uint8_t DAC0 = 66;
-static const uint8_t DAC1 = 95;
+static const uint8_t A6 = 92    // VSense
+static const uint8_t A7 = 93;   // I_Sense
+static const uint8_t A8 = 94;   // CPU on chip Temperature
+
+static const uint8_t A9 = 95;
+static const uint8_t DAC1 = 95; //I_Sense_DAC
+
 
 static const uint8_t CANRX = 69;
 static const uint8_t CANTX = 70;
