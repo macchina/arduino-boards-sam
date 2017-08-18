@@ -2,11 +2,6 @@
  *  variant.cpp for Macchina M2
  *
  *   Author: Tony Doust
- *   Date:   8/5/2017
- *   Version: V1.0
- *       Revisions
- *           TonyD 7-8-2017 Moved all digital pins before Analogue pins in PinDescription Array & adjusted PIN Numbering to reflect changed position in PinDescription Array
- *                           Grouped all logical functions together
  *
  * Short description:
  *   Macchina M2 Arduino_DUE Variant PIN Numbering to PIN Definition Names
