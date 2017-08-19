@@ -29,7 +29,7 @@
 
 /*
  *
- *  DUE Board pin  |  PORT  | Label
+ *  DUE Board pin |  PORT  | Label
  * ---------------+--------+-------
  *  0    (Serial) |  PA8   | "XBEE_RX/RX0"
  *  1             |  PA9   | "XBEE_TX/TX0"
@@ -117,8 +117,8 @@
  *  83            |  PB21  | "SPI_CS2"
  *  84            |  PB20  | "USART2TX"     // Test Point 5
  *  85            |  PC1   | "unconnected!" // ** unconnected processor pin ** //
- *      // Analogue Pins
- *      //--------------
+ *       Analogue Pins
+ *      --------------
  *  86            |  PB19  | "ANALOG_1/A0"     // AD10
  *  87            |  PB18  | "ANALOG_2/A1"     // AD9
  *  88            |  PA2   | "ANALOG_3/A2"     // AD7
@@ -143,7 +143,7 @@
  *  107 CAN Masks |  PB15A | "PINS_CAN1"        // Can1 Pin mask for TX & RX
  *
  *  USB pin       |  PORT
- * ----------------+--------
+ * ---------------+--------
  *  ID            |  PB11
  *  VBOF          |  PB10
  *
