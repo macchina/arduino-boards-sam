@@ -366,7 +366,7 @@ static const uint8_t A3 = 89;
 static const uint8_t A4 = 90;
 static const uint8_t A5 = 91;
 
-static const uint8_t A6 = 92    // VSense
+static const uint8_t A6 = 92;   // VSense
 static const uint8_t A7 = 93;   // I_Sense
 static const uint8_t A8 = 94;   // CPU on chip Temperature
 
