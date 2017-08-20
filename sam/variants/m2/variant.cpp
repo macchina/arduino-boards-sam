@@ -30,7 +30,7 @@
 /*
  *
  *  DUE Board pin  |  PORT  | Label
- * ----------------+--------+-------
+ * ---------------+--------+-------
  *  0    (Serial) |  PA8   | "XBEE_RX/RX0"
  *  1             |  PA9   | "XBEE_TX/TX0"
  *  2             |  PB25  | "XBEE_RTS"
@@ -50,9 +50,9 @@
  *  16            |  PD2   | "DS4"              // Yellow LED
  *  17            |  PA15  | "DS5"              // Yellow LED
  *  18            |  PA14  | "DS6"              // Green LED
- *  19            |  PD7   | "DS7_RED/RGB_RED"
- *  20            |  PD8   | "DS7_GREEN/RGB_GREEN"
- *  21            |  PC25  | "DS7_BLUE/RGB_BLUE"
+ *  19            |  PC25  | "DS7_BLUE/RGB_BLUE"
+ *  20            |  PD7   | "DS7_RED/RGB_RED"
+ *  21            |  PD8   | "DS7_GREEN/RGB_GREEN"
  *  22            |  PC27  | "Button1"          // M2_Button_1
  *  23            |  PB6A  | "Button2"          // M2_Button_2
  *  24      PWMH0 |  PC3   | "GPIO1"
