@@ -128,7 +128,7 @@ extern "C"{
 #define RGB_BLUE   DS7_BLUE     // RGB Blue LED
 
 
-#define LED_BUILTIN     DS2
+#define LED_BUILTIN     RGB_BLUE
 /*
 #define PIN_LED_13      DS2
 #define PIN_LED_RXL     DS7_GREEN
