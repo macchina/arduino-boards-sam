@@ -482,6 +482,7 @@ void init( void )
   pmc_enable_periph_clk(ID_ADC);
   adc_init(ADC, SystemCoreClock, ADC_FREQ_MAX, ADC_STARTUP_FAST);
 
+  adc_disable_all_channel(ADC);
   adc_enable_channel(ADC, ADC_CHANNEL_12); // Analog1
   adc_enable_channel(ADC, ADC_CHANNEL_11); // Analog2
   adc_enable_channel(ADC, ADC_CHANNEL_0);  // Analog3
@@ -497,16 +498,10 @@ void init( void )
   adc_configure_timing(ADC, 0, ADC_SETTLING_TIME_3, 1);
   adc_configure_trigger(ADC, ADC_TRIG_SW, 0); // Disable hardware trigger.
   adc_disable_interrupt(ADC, 0xFFFFFFFF); // Disable all ADC interrupts.
-  adc_disable_all_channel(ADC);
 
 
   // Initialize analogOutput module
   analogOutputInit();
-
-  analogReference(AR_DEFAULT);		// this set the default analogue reference voltage
-  analogWriteResolution(12u);		// set analogue write resolution to 12bit resolution
-  analogReadResolution(12u);		// set analogue read resolution to 12 bits resolution
-
 }
 
 #ifdef __cplusplus
