@@ -25,8 +25,8 @@
   Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
-#ifndef _VARIANT_ARDUINO_DUE_X_
-#define _VARIANT_ARDUINO_DUE_X_
+#ifndef _VARIANT_MACCHINA_M2_
+#define _VARIANT_MACCHINA_M2_
 
 
 /*----------------------------------------------------------------------------
@@ -462,5 +462,5 @@ extern USARTClass Serial3;
 #define SERIAL_PORT_HARDWARE2       Serial2
 #define SERIAL_PORT_HARDWARE3       Serial3
 
-#endif /* _VARIANT_ARDUINO_DUE_X_ */
+#endif /* _VARIANT_MACCHINA_M2_ */
 
