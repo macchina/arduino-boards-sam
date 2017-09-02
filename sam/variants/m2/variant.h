@@ -343,13 +343,13 @@ static const uint8_t SCL0  = PIN_WIRE1_SCL;
  * UART/USART Interfaces
  */
 // Serial
-#define PINS_UART            98
+#define PINS_UART            98     // XBEE_RX, XBEE_TX
 // Serial1
-#define PINS_USART0          99
+#define PINS_USART0          99     // LIN_KTX, LIN_RTX
 // Serial2
-#define PINS_USART1          100
+#define PINS_USART1          100    // LIN_LTX, LIN_LRX
 // Serial3
-#define PINS_USART3          101
+#define PINS_USART3          101    // UART3/TXD3, RXD3 26 pin connector
 
 /*
  * USB Interfaces
@@ -430,10 +430,10 @@ static const uint8_t CAN1TX = 105;
 
 #ifdef __cplusplus
 
-extern UARTClass Serial;
-extern USARTClass Serial1;
-extern USARTClass Serial2;
-extern USARTClass Serial3;
+extern UARTClass Serial;    // XBEE_RX, XBEE_TX
+extern USARTClass Serial1;  // LIN_KTX, LIN_RTX
+extern USARTClass Serial2;  // LIN_LTX, LIN_LRX
+extern USARTClass Serial3;  // UART3/TXD3, RXD3 26 pin connector
 
 #endif
 
@@ -452,15 +452,15 @@ extern USARTClass Serial3;
 //
 // SERIAL_PORT_HARDWARE_OPEN  Hardware serial ports which are open for use.  Their RX & TX
 //                            pins are NOT connected to anything by default.
-#define SERIAL_PORT_MONITOR         Serial
+#define SERIAL_PORT_MONITOR         SerialUSB
 #define SERIAL_PORT_USBVIRTUAL      SerialUSB
-#define SERIAL_PORT_HARDWARE_OPEN   Serial1
-#define SERIAL_PORT_HARDWARE_OPEN1  Serial2
-#define SERIAL_PORT_HARDWARE_OPEN2  Serial3
-#define SERIAL_PORT_HARDWARE        Serial
-#define SERIAL_PORT_HARDWARE1       Serial1
-#define SERIAL_PORT_HARDWARE2       Serial2
-#define SERIAL_PORT_HARDWARE3       Serial3
+#define SERIAL_PORT_HARDWARE_OPEN   Serial3     // UART3/TXD3, RXD3 26 pin connector
+#define SERIAL_PORT_HARDWARE_OPEN1  Serial3     // UART3/TXD3, RXD3 26 pin connector
+#define SERIAL_PORT_HARDWARE_OPEN2  Serial3     // UART3/TXD3, RXD3 26 pin connector
+#define SERIAL_PORT_HARDWARE        Serial      // XBEE_RX, XBEE_TX
+#define SERIAL_PORT_HARDWARE1       Serial1     // LIN_KTX, LIN_RTX
+#define SERIAL_PORT_HARDWARE2       Serial2     // LIN_LTX, LIN_LRX
+#define SERIAL_PORT_HARDWARE3       Serial3     // UART3/TXD3, RXD3 26 pin connector
 
 #endif /* _VARIANT_ARDUINO_DUE_X_ */
 
