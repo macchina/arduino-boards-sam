@@ -182,8 +182,8 @@ extern "C"{
 //CURRENT SENSE Power Supply
 #define I_SENSE_EN      75  // 12VIO_EN enable to allow the Current sensing for 12VIO
 #define I_SENSE_INT     76  // Interupt from Power supply Overcurrent
-#define I_SENSE         95  // Analogue AD8 Input for 12VIO current sensing
-#define I_SENSE_DAC     67  // DAC Analogue output from CPU to Comparator for Over Current Sensing
+#define I_SENSE         93  // Analogue AD8 Input for 12VIO current sensing
+#define I_SENSE_DAC     95  // DAC Analogue output from CPU to Comparator for Over Current Sensing
 
 
 // SD
