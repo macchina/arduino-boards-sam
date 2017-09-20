@@ -33,16 +33,6 @@
  *        Definitions
  *----------------------------------------------------------------------------*/
 
-/*************************************************************************************
-*                   WARNING for use with M2 BETA  Hardware ONLY                      *
-* Uncomment the following define to use the BETA version of the GPIOx_B sink OUTPUTS *
-*                                                                                    *
-*************************************************************************************/
-
-//#define M2_Beta
-
-/************************************************************************************/
-
 /** Frequency of the board main oscillator */
 #define VARIANT_MAINOSC     12000000
 
@@ -146,7 +136,7 @@ extern "C"{
 #define GPIO5           28
 #define GPIO6           29
 
-#ifdef M2_Beta  // M2 Beta legacy Hardware Sink Input Pins
+#ifdef MACCHINA_M2_BETA  // M2 Beta legacy Hardware Sink Input Pins
     // M2 GPIO_B pins for Sinking INPUT Pins
     #define GPIO1_B     30
     #define GPIO2_B     31
