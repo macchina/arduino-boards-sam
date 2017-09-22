@@ -478,6 +478,10 @@ void init( void )
     g_APinDescription[PINS_CAN1].ulPin,
     g_APinDescription[PINS_CAN1].ulPinConfiguration);
 
+  // enable the use of the external 32Khz clock
+  pmc_switch_sclk_to_32kxtal(PMC_OSC_XTAL); // enable the external 32kHz crystal
+  while(!pmc_osc_is_ready_32kxtal());   // wait for the clock to be set
+
   // Initialize Analog Controller
   pmc_enable_periph_clk(ID_ADC);
   adc_init(ADC, SystemCoreClock, ADC_FREQ_MAX, ADC_STARTUP_FAST);
