@@ -25,8 +25,8 @@
   Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
-#ifndef _VARIANT_ARDUINO_DUE_X_
-#define _VARIANT_ARDUINO_DUE_X_
+#ifndef _VARIANT_MACCHINA_M2
+#define _VARIANT_MACCHINA_M2
 
 
 /*----------------------------------------------------------------------------
@@ -462,5 +462,5 @@ extern USARTClass Serial3;  // UART3/TXD3, RXD3 26 pin connector
 #define SERIAL_PORT_HARDWARE2       Serial2     // LIN_LTX, LIN_LRX
 #define SERIAL_PORT_HARDWARE3       Serial3     // UART3/TXD3, RXD3 26 pin connector
 
-#endif /* _VARIANT_ARDUINO_DUE_X_ */
+#endif /* _VARIANT_MACCHINA_M2 */
 
