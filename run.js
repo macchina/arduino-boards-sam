@@ -28,7 +28,7 @@ async function main() {
   const version = await trimmedStdout('git describe');
 
   const filename = `macchina-sam-${version}.tar.gz`
-  await exec(`tar -h -cvzf ${filename} macchina/`)
+  await exec(`tar -h -cvzf ${filename} macchina/ --exclude=".*"`)
   const hash = await trimmedStdout(`sha256sum ${filename} | sed 's/\\s.*//'`)
   const byteCount = await trimmedStdout(`du -b ${filename} | sed 's/\\s.*//'`)
   const boardNames = await getBoardNames()

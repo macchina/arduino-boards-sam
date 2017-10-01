@@ -1,3 +1,13 @@
+## Submodules
+
+This project uses Git Submodules, after cloning need to run:
+
+```bash
+git submodule update --init
+```
+
+This causes Git to clone and checkout the submodules.
+
 ## Development: Testing your changes
 
 ### Local install (recommended)
