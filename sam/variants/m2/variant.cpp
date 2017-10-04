@@ -506,6 +506,10 @@ void init( void )
 
   // Initialize analogOutput module
   analogOutputInit();
+
+  analogWriteResolution(12u);		// set analogue write resolution to 12bit resolution
+  analogReadResolution(12u);		// set analogue read resolution to 12 bits resolution
+
 }
 
 #ifdef __cplusplus
