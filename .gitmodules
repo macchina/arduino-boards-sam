@@ -1,0 +1,18 @@
+[submodule "sam/libraries/due_can"]
+	path = sam/libraries/due_can
+	url = https://github.com/collin80/due_can.git
+[submodule "sam/libraries/due_wire"]
+	path = sam/libraries/due_wire
+	url = https://github.com/collin80/due_wire.git
+[submodule "sam/libraries/M2_SD_HSMCI"]
+	path = sam/libraries/M2_SD_HSMCI
+	url = https://github.com/macchina/M2_SD_HSMCI.git
+[submodule "sam/libraries/LIN"]
+	path = sam/libraries/LIN
+	url = https://github.com/macchina/LIN.git
+[submodule "sam/libraries/mcp2515"]
+	path = sam/libraries/mcp2515
+	url = https://github.com/macchina/mcp2515.git
+[submodule "sam/libraries/Single-Wire-CAN-mcp2515"]
+	path = sam/libraries/Single-Wire-CAN-mcp2515
+	url = https://github.com/macchina/Single-Wire-CAN-mcp2515.git
