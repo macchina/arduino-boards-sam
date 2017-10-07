@@ -1,24 +1,22 @@
-## Submodules
+## Development Instructions
 
-This project uses Git Submodules, after cloning need to run:
+### Submodules
+
+This project uses Git Submodules, after cloning need to run the following command so Git will clone and checkout the submodules:
 
 ```bash
 git submodule update --init
 ```
 
-This causes Git to clone and checkout the submodules.
-
-## Development: Testing your changes
-
 ### Local install (recommended)
 
 - Close Arduino IDE.
 - Copy create a **macchina** folder in the **hardware** sub-directory of your Arduino directory then copy the contests of this repository.
-  - This can be either your _sketchbook_ directory (usually <Documents>/Arduino), or the directory of the Arduino application itself, the choice is up to you.
+  - This can be either your _sketchbook_ directory (usually <Documents>/Arduino), or the directory of the Arduino application itself.  The choice is up to you.
   - **Tip:** You can clone this repository directly to the destination to avoid copying back and forth:
     ```bash
     cd $ARDUINO/hardware # Substitute your actual location for $ARDUINO
-    git clone https://github.com/macchina/Macchina_Arduino_Boards.git macchina
+    git clone --recursive https://github.com/macchina/Macchina_Arduino_Boards.git macchina
     ```
 - Launch Arduino IDE and you should find the **Macchina M2** board file installed.
 
@@ -29,6 +27,13 @@ This causes Git to clone and checkout the submodules.
   - You can use either a `file://` url or [serve the files over HTTP locally](https://gist.github.com/willurd/5720255).
 - Add your modified `package_macchina_index.json` under Preferences and download your board with the Board Manager.
 
+## Release instructions
+
+To publish a new release, making it available for Arduino IDE users perform the following steps:
+
+1. Commit an update to **platform.txt** with the new version.  Follow [Semantic Versioning](http://semver.org/).
+2. Push a Git tag where the tag name is the version number from **platform.txt**
+3. Once the Travis CI build completes, retrigger the Travis CI build for **macchina/arduino-boards-index** from the Travis CI website.
 
 ## Upstream: ArduinoCore-sam
 This variant started as a fork of the `arduino_due_x` variant in [**ArduinoCore-sam**](https://github.com/arduino/ArduinoCore-sam).  This was done in a way that preserves the ability to merge most upstream changes from the variant.
