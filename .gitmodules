@@ -19,3 +19,6 @@
 [submodule "sam/libraries/M2_12VIO"]
 	path = sam/libraries/M2_12VIO
 	url = https://github.com/TDoust/M2_12VIO
+[submodule "sam/libraries/can_common"]
+	path = sam/libraries/can_common
+	url = https://github.com/collin80/can_common
