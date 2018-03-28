@@ -16,3 +16,9 @@
 [submodule "sam/libraries/Single-Wire-CAN-mcp2515"]
 	path = sam/libraries/Single-Wire-CAN-mcp2515
 	url = https://github.com/macchina/Single-Wire-CAN-mcp2515.git
+[submodule "sam/libraries/M2_12VIO"]
+	path = sam/libraries/M2_12VIO
+	url = https://github.com/TDoust/M2_12VIO
+[submodule "sam/libraries/can_common"]
+	path = sam/libraries/can_common
+	url = https://github.com/collin80/can_common
