@@ -32,7 +32,7 @@ git submodule update --init
 To publish a new release, making it available for Arduino IDE users perform the following steps:
 
 1. Commit an update to **platform.txt** with the new version.  Follow [Semantic Versioning](http://semver.org/).
-2. Push a Git tag where the tag name is the version number from **platform.txt**
+2. Push an **annotated** Git tag where the tag name is the version number from **platform.txt**
 3. Once the Travis CI build completes, retrigger the Travis CI build for **macchina/arduino-boards-index** from the Travis CI website.
 
 ## Upstream: ArduinoCore-sam
