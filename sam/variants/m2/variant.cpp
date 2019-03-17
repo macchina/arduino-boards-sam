@@ -496,8 +496,10 @@ void init( void )
   adc_enable_channel(ADC, ADC_CHANNEL_3);  // V_SENSE
   adc_enable_channel(ADC, ADC_CHANNEL_10); // I_SENSE
 
-  adc_enable_ts(ADC); // Enable A15 Chip Temeprature tson bit
-  adc_enable_channel(ADC, ADC_TEMPERATURE_SENSOR);
+  //Chip temperature ADC conflicts with SWCAN mode pin.
+  //Disabled by default now.
+  //adc_enable_ts(ADC); // Enable A15 Chip Temeprature tson bit
+  //adc_enable_channel(ADC, ADC_TEMPERATURE_SENSOR);
 
   adc_configure_timing(ADC, 0, ADC_SETTLING_TIME_3, 1);
   adc_configure_trigger(ADC, ADC_TRIG_SW, 0); // Disable hardware trigger.
