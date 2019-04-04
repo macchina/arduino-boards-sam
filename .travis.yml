@@ -4,9 +4,6 @@ node_js:
 sudo: false
 before_deploy:
 - node run.js > platform.json
-branches:
-   only:
-     - master
 deploy:
   provider: releases
   github_token: $GITHUB_TOKEN
