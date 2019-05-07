@@ -6,7 +6,8 @@ before_deploy:
 - node run.js > platform.json
 deploy:
   provider: releases
-  github_token: $GITHUB_TOKEN
+  api_key:
+    secure: UL9i8eqPfR9jYeydt8d4nUwqE/ZsLJzGjZWAqiDPvDKMFetVSyFTTUwRvigy+6CsU16ZCPu7h5PBbw9qTfTGiSr5lxkW8CUSlnMWL1iE86EJbKfdXUGW18ApGWkyjLs1FPU2+iK8QnVlvjXQQUh6ZW6hLbzBtr1r/IRD+CjLn3ATdt+3X9yejMd+TDgc6mAdvtEgbGUG+PvkyuvMCAlN9aC9ThB+xgTC53flqvca87wIEb6WiBqAcWnxQtl2HfwPVhFQbEmKzpxHnHKG7y/48WweNsNBM9jmXQs3I7N/X0XSPtA2IXdwE3ObDCTxVy3sHLr+YQ/CEk57CnZI5QFYeELzQPXE6tYcTYOrFmjkMZfIXRJXCqurxWkI7Snn/O4u/+pfS6AUlfiinWuom8JF0BEuXCQP0OmnSC47FQGpf9btRLhCTT/AY8v9ThYrOEQSJFM5Tv2p0kwkU5PGpqB8MrxtU5PyqKWw1AVQlxrK0AIGRcrI0r4BwaYbXw6C2obTDjJpf5KUhZaAqqx4RHa/5++TOykbZ7z4VXdyhwnrARVCyben9qjnMziD9bBvnwo2NgOQLeGORntiWkdc73LTQIYJhOFvIAiN16pPj/jKs4E8gl6WZlWUE0XzVcQEH1+bVI579SqaIZxdZqVySyA2JQnbx+Z/YOg3Qw1E3PLRqNA=  
   file:
     - "*.tar.gz"
     - platform.json
