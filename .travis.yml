@@ -3,7 +3,12 @@ node_js:
 - '8'
 sudo: false
 before_deploy:
-- node run.js > platform.json
+- echo $TRAVIS_COMMIT
+- echo $TRAVIS_TAG
+- echo $TRAVIS_BRANCH
+- echo $TRAVIS_BUILD_NUMBER
+- echo $TRAVIS_REPO_SLUG
+- node run.js
 deploy:
   provider: releases
   api_key:
