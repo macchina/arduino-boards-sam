@@ -13,6 +13,6 @@ deploy:
     - platform.json
   file_glob: true
   skip_cleanup: true
-  name: $TRAVIS_TAG
+  name: 0.3.8
   draft: true
   
