@@ -6,7 +6,7 @@
 # https://github.com/arduino/Arduino/wiki/Arduino-IDE-1.5-3rd-party-Hardware-specification
 
 name=Macchina SAM Boards
-version=0.3.8
+version=0.3.12
 
 # SAM3 compile variables
 # ----------------------
