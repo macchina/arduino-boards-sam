@@ -3,10 +3,16 @@ node_js:
 - '8'
 sudo: false
 before_deploy:
+- echo $TRAVIS_COMMIT
+- echo $TRAVIS_TAG
+- echo $TRAVIS_BRANCH
+- echo $TRAVIS_BUILD_NUMBER
+- echo $TRAVIS_REPO_SLUG
 - node run.js > platform.json
 deploy:
   provider: releases
   github_token: $GITHUB_TOKEN
+  api_key: $GITHUB_TOKEN
   file:
     - "*.tar.gz"
     - platform.json
